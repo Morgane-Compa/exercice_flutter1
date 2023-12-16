@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_examen1/components/menu.dart';
 import 'package:flutter_examen1/components/video_hero.dart';
 
 class HomePage extends StatelessWidget {
@@ -17,11 +18,21 @@ class HomePage extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu, color: Colors.white),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
       ),
+      drawer: const AppDrawer(),
+  
       body: ListView( // agencement des sections du body en colonne
         children: const <Widget>[ // sections du body
-          //... ici empilez les differentes sections du body.
-          //... séparez les avec du padding
           VideoHero(), // component affichant un Hero avec un background Video
 
         ],
